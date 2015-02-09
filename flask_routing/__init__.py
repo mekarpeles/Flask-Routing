@@ -38,7 +38,7 @@ def router(app, urls, base_url='', names=False, **kwargs):
         url = base_url + route
         
         if hasattr(view, 'urls'):
-            route(app, getattr(view, 'urls'), base_url=url)
+            router(app, getattr(view, 'urls'), base_url=url, names=names)
 
         elif MethodView in view.mro():
             try:
@@ -48,7 +48,7 @@ def router(app, urls, base_url='', names=False, **kwargs):
                 raise e
         else:
             raise ValueError('Invalid view object for url %s %s.' \
-                                 % ((base_url+route), view.mro()))
+                                 % ((base_url + route), view.mro()))
     return app
 
 def uid(size=6, chars=string.ascii_uppercase + string.digits):

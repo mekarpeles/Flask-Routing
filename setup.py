@@ -9,7 +9,7 @@ import setuptools
 
 setuptools.setup(
     name='Flask-Routing',
-    version='0.0.2',
+    version='0.0.21',
     url='',
     license='BSD',
     author='Hackerlist',
